@@ -13,13 +13,13 @@ public class HomeController {
     }
 
 
-    @GetMapping({"", "/"})
+    @GetMapping({"/contact"})
     public String contact() {
         return "contact";
     }
 
 
-    @GetMapping({"", "/"})
+    @GetMapping({"/privacy"})
     public String privacy() {
         return "privacy";
     }
