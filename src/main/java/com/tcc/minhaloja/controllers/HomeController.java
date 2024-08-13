@@ -13,5 +13,20 @@ public class HomeController {
     }
 
 
+    @GetMapping({"", "/"})
+    public String contact() {
+        return "contact";
+    }
+
+
+    @GetMapping({"", "/"})
+    public String privacy() {
+        return "privacy";
+    }
+
+
+
+
+
 
 }
