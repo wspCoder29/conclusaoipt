@@ -66,7 +66,6 @@ public class ClientsController {
     }
 
 
-
     @GetMapping("/edit")
     public String showEditPage(
             Model model,
@@ -123,8 +122,13 @@ public class ClientsController {
         return "redirect:/clients";
     }
 
-
-
+    @GetMapping("/delete")
+    public String deleteClient(
+            @RequestParam int id
+    ) {
+        repo.deleteClient(id);
+        return "redirect:/clients";
+    }
 
 
 
