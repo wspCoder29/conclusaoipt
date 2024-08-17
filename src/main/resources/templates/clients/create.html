@@ -12,7 +12,7 @@
             <h2 class="text-center mb-5">Novo cliente</h2>
             <form th:action="@{/clients/create}" th:object="${clientDto}" method="post">
                 <div class="row mb-3">
-                    <label class="col-sm-4 col-form-label">First Name</label>
+                    <label class="col-sm-4 col-form-label">Primeiro nome</label>
                     <div class="col-sm-8">
                         <input class="form-control" th:field="${clientDto.firstName}" >
                         <p th:if="${#fields.hasErrors('firstName')}"
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-4 col-form-label">Last Name</label>
+                    <label class="col-sm-4 col-form-label">Último nome</label>
                     <div class="col-sm-8">
                         <input class="form-control" th:field="${clientDto.lastName}" >
                         <p th:if="${#fields.hasErrors('lastName')}"
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-4 col-form-label">Phone</label>
+                    <label class="col-sm-4 col-form-label">Telefone</label>
                     <div class="col-sm-8">
                         <input class="form-control" th:field="${clientDto.phone}" >
                         <p th:if="${#fields.hasErrors('phone')}" th:errorclass="text-danger"
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm-4 col-form-label">Address</label>
+                    <label class="col-sm-4 col-form-label">Endereço</label>
                     <div class="col-sm-8">
                         <input class="form-control" th:field="${clientDto.address}" >
                         <p th:if="${#fields.hasErrors('address')}" th:errorclass="text-danger"
@@ -57,10 +57,10 @@
 
                 <div class="row">
                     <div class="offset-sm-4 col-sm-4 d-grid">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
                     </div>
                     <div class="col-sm-4 d-grid">
-                        <a class="btn btn-outline-primary" href="/clients">Cancel</a>
+                        <a class="btn btn-outline-primary" href="/clients">Cancelar</a>
                     </div>
                 </div>
 

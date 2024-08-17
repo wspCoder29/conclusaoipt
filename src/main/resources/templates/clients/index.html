@@ -9,18 +9,18 @@
 <div class="container py-3">
     <h1 class="text-center my-4">Lista de clientes</h1>
 
-    <a class="btn-primary mb-3" href="/clients/create">Add Client</a>
+    <a class="btn-primary mb-3" href="/clients/create">Adicionar Cliente</a>
 
     <table class="table">
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Nome</th>
             <th>Email</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Created At</th>
-            <th>Action</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Data de registro</th>
+            <th>Ações</th>
         </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -32,8 +32,8 @@
             <td th:text="${client.address}"></td>
             <td th:text="${client.createdAt.substring(0, 10)}"></td>
             <td style="white-space:nowrap">
-                <a class="btn btn-primary btn-sm" th:href="@{/clients/edit(id=${client.id})}">Edit</a>
-                <a class="btn btn-danger btn-sm" th:href="@{/clients/delete(id=${client.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+                <a class="btn btn-primary btn-sm" th:href="@{/clients/edit(id=${client.id})}">Editar</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/clients/delete(id=${client.id})}" onclick="return confirm('Tem certeza?')">Deletar</a>
             </td>
         </tr>
         </tbody>
