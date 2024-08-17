@@ -9,10 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -67,6 +64,73 @@ public class ClientsController {
 
         return "redirect:/clients";
     }
+
+
+
+    @GetMapping("/edit")
+    public String showEditPage(
+            Model model,
+            @RequestParam int id
+    ) {
+        Client client = repo.getClient(id);
+        if (client == null) {
+            return "redirect:/clients";
+        }
+
+        model.addAttribute("client", client);
+
+        ClientDto clientDto = new ClientDto();
+        clientDto.setFirstName(client.getFirstName());
+        clientDto.setLastName(client.getLastName());
+        clientDto.setEmail(client.getEmail());
+        clientDto.setPhone(client.getPhone());
+        clientDto.setAddress(client.getAddress());
+
+        model.addAttribute("clientDto", clientDto);
+
+        return "clients/edit";
+    }
+
+    @PostMapping("/update")
+    public String updateClient(
+            @Valid @ModelAttribute ClientDto clientDto,
+            BindingResult result,
+            @RequestParam int id
+    ) {
+        Client existingClient = repo.getClient(id);
+        if (existingClient == null) {
+            return "redirect:/clients";
+        }
+
+        // Check if email is changed and already exists
+        if (!existingClient.getEmail().equals(clientDto.getEmail()) && repo.getClient(clientDto.getEmail()) != null) {
+            result.addError(new FieldError("clientDto", "email", clientDto.getEmail(),
+                    false, null, null, "Email já utilizado"));
+        }
+
+        if (result.hasErrors()) {
+            return "clients/edit";
+        }
+
+        existingClient.setFirstName(clientDto.getFirstName());
+        existingClient.setLastName(clientDto.getLastName());
+        existingClient.setEmail(clientDto.getEmail());
+        existingClient.setPhone(clientDto.getPhone());
+        existingClient.setAddress(clientDto.getAddress());
+
+        repo.updateClient(existingClient);
+
+        return "redirect:/clients";
+    }
+
+
+
+
+
+
+
+
+
 
 
 }
