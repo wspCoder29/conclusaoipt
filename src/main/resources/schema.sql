@@ -1,7 +1,7 @@
 -- schema.sql
 CREATE TABLE IF NOT EXISTS clients (
-                                       id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                                       firstname VARCHAR(100) NOT NULL,
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(100) NOT NULL,
     lastname VARCHAR(100) NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
     phone VARCHAR(20) NULL,
