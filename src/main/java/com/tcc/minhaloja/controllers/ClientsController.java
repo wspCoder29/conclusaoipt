@@ -101,7 +101,7 @@ public class ClientsController {
             return "redirect:/clients";
         }
 
-        // Check if email is changed and already exists
+
         if (!existingClient.getEmail().equals(clientDto.getEmail()) && repo.getClient(clientDto.getEmail()) != null) {
             result.addError(new FieldError("clientDto", "email", clientDto.getEmail(),
                     false, null, null, "Email já utilizado"));
