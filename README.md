@@ -38,3 +38,5 @@ Este projeto é uma aplicação web para gerenciamento de contatos, implementand
 
 4. Acesse a aplicação em `http://localhost:8080`
 
+5. Antes de iniciar a aplicação, usar o script para criar e popular o banco de dados MySQL
+
